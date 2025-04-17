@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AuraDetect – AI Vision Detection</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="grid-background"></div>
+    
+    <main class="container">
+        <header>
+            <h1 class="glow-text">AuraDetect</h1>
+            <p class="subtitle">AI Vision Detection</p>
+        </header>
+
+        <div class="detection-area">
+            <div class="video-container">
+                <video id="webcam" autoplay playsinline></video>
+                <canvas id="overlay"></canvas>
+                <div class="loading-overlay hidden">
+                    <div class="loader"></div>
+                    <p>Processing...</p>
+                </div>
+                <div class="placeholder-text">
+                    <p>👋 Welcome to AuraDetect!</p>
+                    <p>Start webcam detection or upload media to begin</p>
+                </div>
+            </div>
+
+            <div class="controls-panel">
+                <button id="startWebcam" class="glow-button">
+                    <span class="icon">📹</span> Start Webcam Detection
+                </button>
+                <label for="imageUpload" class="glow-button">
+                    <span class="icon">🖼️</span> Upload Image
+                    <input type="file" id="imageUpload" accept="image/*" hidden>
+                </label>
+                <label for="videoUpload" class="glow-button">
+                    <span class="icon">🎥</span> Upload Video
+                    <input type="file" id="videoUpload" accept="video/*" hidden>
+                </label>
+            </div>
+
+            <div class="console-panel">
+                <div class="console-header">
+                    <span class="console-title">Detection Logs</span>
+                    <div class="console-controls">
+                        <button id="exportLogs" class="control-button">
+                            <span class="icon">📥</span> Export
+                        </button>
+                        <button id="clearLogs" class="control-button">
+                            <span class="icon">🗑️</span> Clear
+                        </button>
+                    </div>
+                </div>
+                <div id="logConsole"></div>
+                    <div class="log-entry system">System initialized. Ready for detection...</div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>Powered by YOLOv5 | <a href="https://github.com/HardikChhallani/AuraDetect" target="_blank">GitHub</a></p>
+        <p>Version 1.0.0</p>
+    </footer>
+
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>
